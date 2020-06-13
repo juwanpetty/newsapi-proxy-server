@@ -8,7 +8,7 @@
       "methods": ["GET"]
     },
     {
-      "src": "/articles",
+      "src": "articles?sources",
       "dest": "/index.js",
       "methods": ["POST"]
     }
