@@ -14,6 +14,21 @@ app.get("/", (req, res) => {
   res.send("Welcome to the News API Proxy Server.");
 });
 
+// Mock API
+app.get("/users", (req, res) => {
+  res.json([
+    { name: "William", location: "Abu Dhabi" },
+    { name: "Chris", location: "Vegas" },
+  ]);
+});
+
+// Mock API
+app.post("/user", (req, res) => {
+  const { name, location } = req.body;
+
+  res.send({ status: "User created", name, location });
+});
+
 app.get("/sources", (req, res) => {
   const url = `https://newsapi.org/v2/sources?country=us`;
   fetch(`${url}&apiKey=${process.env.NEWS_API_KEY}`)
