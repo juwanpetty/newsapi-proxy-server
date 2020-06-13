@@ -10,6 +10,10 @@ const app = express();
 app.use(morgan("tiny"));
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the News API Proxy Server.");
+});
+
 app.get("/sources", (req, res) => {
   const url = `https://newsapi.org/v2/sources?country=us`;
   fetch(`${url}&apiKey=${process.env.NEWS_API_KEY}`)
